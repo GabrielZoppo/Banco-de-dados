@@ -1,4 +1,7 @@
 # Banco-de-dados
+## Parte Teórica:
+* [Google Drive](https://drive.google.com/drive/u/1/folders/1qL9prTNtKDThsiQJQvh7YzlO1sDxZ1sa)
+* [Teoria SQL](https://www.w3schools.com/sql/default.asp)
 ## 1º Tarefa
 ### 1º Parte - Criar Tabelas
 * Aluno:
