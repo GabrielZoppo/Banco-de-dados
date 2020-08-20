@@ -50,7 +50,7 @@ descricao varchar(500)
 ~~~
 
 ### 2º Parte - Alterar tabelas
-* Aluno 
+* Aluno: 
 
 ~~~SQL
  create table aluno(
@@ -63,3 +63,12 @@ descricao varchar(500)
 alter table aluno  add column email varchar(100);
 alter table aluno add column idade numeric(3);
 ~~~
+
+* Matricula:
+~~~SQl
+create table matricula(
+ matriculaaluno numeric(6),
+ coddisciplina numeric(6));
+ 
+ alter table matricula add column dtefetivado timestamp;
+ ~~~
