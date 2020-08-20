@@ -62,7 +62,6 @@ descricao varchar(500)
  dtnascimento timestamp,
  cidade varchar(100)
  );
-
 alter table aluno  add column email varchar(100);
 alter table aluno add column idade numeric(3);
 ~~~
@@ -73,7 +72,6 @@ create table matricula(
  matriculaaluno numeric(6),
  coddisciplina numeric(6)
  );
- 
  alter table matricula add column dtefetivado timestamp;
  ~~~
  
@@ -108,3 +106,7 @@ alter table funcionario add column codgerente numeric(6);
 alter table departamento add column sigla varchar(10);
  ~~~
  
+ ### 3º Parte - Dropar as tabelas
+ ~~~SQL
+ DROP DATABASE ucpel;
+ ~~~
