@@ -72,3 +72,35 @@ create table matricula(
  
  alter table matricula add column dtefetivado timestamp;
  ~~~
+ 
+ * Disciplina:
+~~~SQl
+create table disciplina(
+ cod numeric(6),
+ nome varchar(100),
+ cargahoraria numeric(6)
+ );
+alter table disciplina add column numalunos numeric(6);
+alter table disciplina add column turma numeric(6);
+ ~~~
+ * Funcionário:
+~~~SQl
+create table funcionario(
+ cod numeric(6),
+ nome varchar(100),
+ cargo varchar(100),
+ salario numeric(10),
+ coddepartamento numeric(6)
+ );
+alter table funcionario add column dtcomntratacao timestamp;
+alter table funcionario add column codgerente numeric(6);
+ ~~~
+ * Departamento:
+~~~SQl
+ create table departamento(
+ cod numeric(6),
+ descricao varchar(500)
+ );
+alter table departamento add column sigla varchar(10);
+ ~~~
+ 
