@@ -9,7 +9,8 @@ matricula numeric(6),
 nome varchar(200),
 telefone numeric(10),
 dtnascimento timestamp,
-cidade varchar(100));
+cidade varchar(100)
+);
 ~~~
 
 * Matricula:
@@ -17,7 +18,8 @@ cidade varchar(100));
 ~~~SQL
 create table matricula(
 matriculaaluno numeric(6),
-coddisciplina numeric(6));
+coddisciplina numeric(6)
+);
 ~~~
 
 * Disciplina:
@@ -58,7 +60,8 @@ descricao varchar(500)
  nome varchar(200),
  telefone numeric(10),
  dtnascimento timestamp,
- cidade varchar(100));
+ cidade varchar(100)
+ );
 
 alter table aluno  add column email varchar(100);
 alter table aluno add column idade numeric(3);
@@ -68,7 +71,8 @@ alter table aluno add column idade numeric(3);
 ~~~SQl
 create table matricula(
  matriculaaluno numeric(6),
- coddisciplina numeric(6));
+ coddisciplina numeric(6)
+ );
  
  alter table matricula add column dtefetivado timestamp;
  ~~~
