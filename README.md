@@ -1,6 +1,6 @@
 # Banco-de-dados
-
-## 1º Tarefa - Criar Tabelas
+## 1º Tarefa
+### 1º Parte - Criar Tabelas
 * Aluno:
 
 ~~~SQL
@@ -48,3 +48,5 @@ cod numeric(6),
 descricao varchar(500)
 );
 ~~~
+
+### 2º Parte - Alterar tabelas
