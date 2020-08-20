@@ -113,3 +113,19 @@ alter table departamento add column sigla varchar(10);
  ~~~SQL
  DROP DATABASE ucpel;
  ~~~
+ 
+ ### 4ª Parte - Criando tabelas com chaves primárias
+ * Aluno:
+ ~~~SQL
+use ucpel;
+create table aluno(
+ matricula numeric(6),
+ nome varchar(200),
+ telefone numeric(10),
+ dtnascimento timestamp,
+ cidade varchar(100),
+ email varchar(100),
+ idade numeric(3),
+ primary key (matricula)
+ );
+  ~~~
