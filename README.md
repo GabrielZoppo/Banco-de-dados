@@ -129,3 +129,50 @@ create table aluno(
  primary key (matricula)
  );
   ~~~
+  * matricula:
+~~~SQL
+use ucpel;
+create table matricula(
+ matriculaaluno numeric(6),
+ coddisciplina numeric(6),
+ dtefetivado timestamp,
+ primary key (matriculaaluno,coddisciplina)
+ );
+~~~
+* Disciplina:
+ ~~~SQL
+use ucpel;
+create table disciplina(
+ cod numeric(6),
+ nome varchar(100),
+ cargahoraria numeric(6),
+ numalunos numeric(6),
+ turma numeric(6),
+ primary key (cod)
+ );
+  ~~~
+  * Funcionário:
+~~~SQl
+use ucpel;
+create table funcionario(
+ cod numeric(6),
+ nome varchar(100),
+ cargo varchar(100),
+ salario numeric(10),
+ coddepartamento numeric(6),
+ dtcomntratacao timestamp,
+ codgerente numeric(6),
+ primary key (cod)
+ );
+ ~~~
+ 
+ * Departamento:
+~~~SQl
+use ucpel;
+create table departamento(
+ cod numeric(6),
+ descricao varchar(500),
+ sigla varchar(10),
+ primary key (cod)
+ );
+ ~~~
