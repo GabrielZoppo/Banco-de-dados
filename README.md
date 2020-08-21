@@ -176,3 +176,20 @@ create table departamento(
  primary key (cod)
  );
  ~~~
+  ### 5ª Parte - Inserindo dados nas tabelas
+  * Aluno
+  ~~~SQL
+  INSERT INTO aluno(matricula, nome, cidade)
+  VALUES (20181, 'Gabriel Harter Zoppo', 'Pelotas');
+  INSERT INTO aluno(matricula, nome, cidade)
+  VALUES (20182, 'Guilherme Corrêa Carvalho', 'São Lourenço do Sul');
+  INSERT INTO aluno(matricula, nome, cidade)
+  VALUES (20183, 'Guilherme Moura Baccarin', 'Pelotas');
+  INSERT INTO aluno(matricula, nome, cidade)
+  VALUES (20184, 'Helena Garcia Tavares', 'Pelotas');
+  INSERT INTO aluno(matricula, nome, cidade)
+  VALUES (20185, 'Icaro Gonçalves Siqueira', 'São Lourenço do Sul ');
+  INSERT INTO aluno(matricula, nome, cidade)
+  VALUES (20186, 'Matheus Gonçalves Stigger', 'São Lourenço do Sul');
+ 
+  ~~~
