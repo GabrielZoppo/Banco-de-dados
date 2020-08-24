@@ -176,4 +176,36 @@ create table departamento(
  primary key (cod)
  );
  ~~~
+### 5º parte Seleções - Projeções
+* Selecione todos os registros das tabelas Funcionario
+~~~SQl
+SELECT * FROM ucpel.funcionario;
+~~~
+* Selecione somente a matricula e o nome dos registros da tabela Aluno
+~~~SQl
+SELECT matricula,nome FROM ucpel.aluno;
+~~~
+* Na tabela Funcionario, selecione o código, o nome, o salario atual e o salário atual + 10 %, colocando o apelido/alias nesta ultima coluna de “novosalario”
+~~~SQl
+SELECT cod,salario,salario+0.1 as novosalario FROM ucpel.funcionario;
+~~~
+* Selecione a coluna sigla na tabela Departamento, sem repetir registros iguais.
+~~~SQl
+SELECT DISTINCT sigla FROM ucpel.departamento;
+~~~
+* Selecione a descricao e a sigla na tabela Departamento, sem repetir registros iguais. Apelide a coluna descricao de “nomedepartamento” e sigla de “codigoreduzido”
+~~~SQl
+SELECT DISTINCT sigla as codigoreduzido,descricao as nomedepartamento FROM ucpel.departamento;
+~~~
+* Selecione todas as idades dos alunos, sem repeti-las
+~~~SQl
+SELECT DISTINCT idade FROM ucpel.aluno;
+~~~
+* Selecione a matricula, o nome, a idade e a idade + 2 apelidando esta ultima coluna de “provavel_idade_formado”
+~~~SQl
+SELECT matricula,nome,idade,idade+2 as provavel_idade_formado FROM ucpel.aluno;
+~~~
+* Faça retornar o seguinte texto oriundo da tabela Aluno Aluno: xxxxxx nascido em: xxxxx estará com a idade aproximada de xx ao se formar!
+~~~SQl
 
+~~~
