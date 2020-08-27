@@ -207,5 +207,5 @@ SELECT matricula,nome,idade,idade+2 as provavel_idade_formado FROM ucpel.aluno;
 ~~~
 * Faça retornar o seguinte texto oriundo da tabela Aluno Aluno: xxxxxx nascido em: xxxxx estará com a idade aproximada de xx ao se formar!
 ~~~SQl
-
+SELECT CONCAT("Aluno: ",a.nome,"nascido em: ",a.dtnascimento,"estara com idade aproximada de: ", a.idade+2) from ucpel.aluno a;
 ~~~
