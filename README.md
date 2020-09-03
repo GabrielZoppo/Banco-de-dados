@@ -231,53 +231,71 @@ set cargaHoraria = 60;
 ~~~
 * Crie uma consulta para exibir o nome e o salário dos funcionários que recebem mais de R$ 800,00
 ~~~SQL
-
+select nome,salario from funcionario
+where salario > 800;
 ~~~
 
 * Crie uma consulta para exibir o nome do funcionário e o número do departamento para o código do funcionário 459
 ~~~SQL
-
+select nome,coddepartamento from funcionario
+where cod = 459;
 ~~~
 * Exiba o nome e o salário de todos os funcionários cujos salários não estejam na faixa entre R$ 950,00 e R$ 2300,00
 ~~~SQL
-
+select nome,salario from funcionario
+where salario not between 950 and 2300;
 ~~~
 
 ### 2º Parte:
-* Exiba o nome do funcionário. o cargo e a data dos funcionários admitidos entre 20 de fevereiro de 2004 e 1 de maio de 2007
+* Exiba o nome do funcionário, o cargo e a data dos funcionários admitidos entre 20 de fevereiro de 2004 e 1 de maio de 2007
 ~~~SQL
-
+select nome,cargo,dtcomntratacao from funcionario
+where dtcomntratacao between '2004-2-20' and '2007-5-1';
 ~~~
 * Exiba o nome do funcionário e o número do departamento de todos os funcionários dos departamentos 10 e 30, por ordem alfabética de nome
 ~~~SQL
-
+select nome,coddepartamento from funcionario
+where coddepartamento = 10 and 30
+order by nome;
 ~~~
 * Liste o nome e o salário dos funcionários que recebem mais de R$ 1500,00 e que estão nos departamentos 10 ou 30. Nomeie as colunas Nome e Salário, para Funcionário e Salário do Mês
 ~~~SQL
-
+select nome as funcionario,salario as salariodomes from funcionario
+where salario > 1500 AND (coddepartamento= 10 OR coddepartamento= 30);
 ~~~
 * Exiba o nome e a data de admissão de cada funcionário admitido em 2004
 ~~~SQL
-
+select nome,dtcomntratacao from funcionario
+where dtcomntratacao between '2004-1-1' and '2004-12-31';
 ~~~
 ### 3º Parte:
 * Exiba o nome e o cargo de cada funcionário que não possua gerente
 ~~~SQL
-
+select nome,cargo from funcionario
+where codgerente is null;
 ~~~
 * Exiba os nomes de todos os funcionários que possuem um A na segunda letra de seus nomes
 ~~~SQL
-
+select nome from funcionario
+where nome like '_A%';
 ~~~
 * Exiba todos os funcionários que possuem duas letras A em seus nomes e estão no departamento 30 ou seu gerente seja o 7529, ordenado pelo código do departamento de forma decrescente
 ~~~SQL
-
+select nome from funcionario
+where nome like '%A%A%' and coddepartamento = 30 or codgerente = 7529
+order by coddepartamento desc;
 ~~~
 * Premie, aumentando o salário em R$ 300,00, de todos os funcionários que ganham menos de R$ 700,00
 ~~~SQL
-
+SET SQL_SAFE_UPDATES = 0;
+update funcionario
+set salario = salario+300
+where salario < 700;
 ~~~
 * De um aumento de 15% aos funcionários do departamento 20
 ~~~SQL
-
+SET SQL_SAFE_UPDATES = 0;
+update funcionario
+set salario = salario+(salario*(15/100))
+where coddepartamento = 20;
 ~~~
