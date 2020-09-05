@@ -299,3 +299,24 @@ update funcionario
 set salario = salario+(salario*(15/100))
 where coddepartamento = 20;
 ~~~
+### 4º Parte:
+* Recriar a tabela aluno com chave primária e estrangeira
+~~~SQL
+
+~~~
+* Recriar a tabela matricula com chave primária e estrangeira
+~~~SQL
+
+~~~
+* Recriar a tabela disciplina com chave primária e estrangeira
+~~~SQL
+
+~~~
+* Recriar a tabela funcionário com chave primária e estrangeira
+~~~SQL
+
+~~~
+* Recriar a tabela departamento com chave primária e estrangeira
+~~~SQL
+
+~~~
