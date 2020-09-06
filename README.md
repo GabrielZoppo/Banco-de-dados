@@ -314,7 +314,18 @@ where coddepartamento = 20;
 ~~~
 * Recriar a tabela funcionário com chave primária e estrangeira
 ~~~SQL
-
+create table funcionario(
+cod numeric(6),
+nome varchar(100),
+cargo varchar(100),
+salario numeric(10),
+coddepartamento numeric(6),
+dtcomntratacao timestamp,
+codgerente numeric(6),
+primary key (cod),
+foreign key (coddepartamento) references departamento(cod),
+foreign key (codgerente) references funcionario(cod)
+ );
 ~~~
 * Recriar a tabela departamento com chave primária e estrangeira
 ~~~SQL
