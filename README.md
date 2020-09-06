@@ -302,6 +302,15 @@ where coddepartamento = 20;
 ### 4º Parte:
 * Recriar a tabela aluno com chave primária e estrangeira
 ~~~SQL
+REATE TABLE aluno (
+ matricula int(11) AUTO_INCREMENT NOT NULL,
+ nome VARCHAR(200) DEFAULT NOT NULL, 
+ telefone int(10) DEFAULT NULL,
+ dtaNascimento timestamp DEFAULT NULL,
+ cidade varchar(100) DEFAULT NULL,
+ email varchar(100) DEFAULT NULL,
+ idade decimal(3,0) DEFAULT NULL,
+ PRIMARY KEY (matricula);
 
 ~~~
 * Recriar a tabela matricula com chave primária e estrangeira
@@ -313,10 +322,10 @@ where coddepartamento = 20;
 use ucpel;
 create table disciplina(
 cod numeric(6),
-nome varchar(100),
-cargahoraria numeric(6),
-numalunos numeric(6),
-turma numeric(6),
+nome varchar(100) DEFAULT NULL,
+cargahoraria numeric(6) DEFAULT NULL,
+numalunos numeric(6) DEFAULT NULL,
+turma numeric(6) DEFAULT NULL,
 primary key (cod)
 );
 ~~~
