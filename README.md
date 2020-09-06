@@ -310,7 +310,15 @@ where coddepartamento = 20;
 ~~~
 * Recriar a tabela disciplina com chave primária e estrangeira
 ~~~SQL
-
+use ucpel;
+create table disciplina(
+cod numeric(6),
+nome varchar(100),
+cargahoraria numeric(6),
+numalunos numeric(6),
+turma numeric(6),
+primary key (cod)
+);
 ~~~
 * Recriar a tabela funcionário com chave primária e estrangeira
 ~~~SQL
