@@ -318,5 +318,10 @@ where coddepartamento = 20;
 ~~~
 * Recriar a tabela departamento com chave primária e estrangeira
 ~~~SQL
-
+create table departamento(
+ cod numeric(10),
+ descricao varchar(500),
+ sigla varchar(3) not null,
+ primary key (cod)
+ );
 ~~~
