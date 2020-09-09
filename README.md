@@ -315,7 +315,14 @@ REATE TABLE aluno (
 ~~~
 * Recriar a tabela matricula com chave primária e estrangeira
 ~~~SQL
-
+create table matricula(
+matriculaaluno numeric(6),
+coddisciplina numeric(6),
+dtefetivado timestamp,
+primary key (matriculaaluno,coddisciplina),
+foreign key (coddisciplina) references disciplina(cod),
+foreign key (matriculaaluno) references aluno(matricula)
+ );
 ~~~
 * Recriar a tabela disciplina com chave primária e estrangeira
 ~~~SQL
