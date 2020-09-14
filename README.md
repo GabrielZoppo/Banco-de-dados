@@ -302,7 +302,7 @@ where coddepartamento = 20;
 ### 4º Parte:
 * Recriar a tabela aluno com chave primária e estrangeira
 ~~~SQL
-REATE TABLE aluno (
+CREATE TABLE aluno (
  matricula int(11) AUTO_INCREMENT NOT NULL,
  nome VARCHAR(200) DEFAULT NOT NULL, 
  telefone int(10) DEFAULT NULL,
