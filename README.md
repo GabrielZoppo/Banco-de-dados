@@ -414,6 +414,9 @@ group by aluno.nome;
  ### 2º Parte:
 * Crie uma consulta para exibir o nome do departamento, a sigla, o número de funcionários e o salário médio de todos os funcionários neste departamento.
 ~~~SQL
+SELECT departamento.descricao , departamento.sigla, count(funcionario.cod) n_func ,avg(funcionario.salario) media FROM departamento 
+left join funcionario  on funcionario.coddepartamento = departamento.cod
+group by departamento.cod;
 ~~~
 * Monte uma consulta que informe a faixa salarial dos funcionários, de acordo com a tabela do slide 8. Em seguida faça um select com o número de funcionários por faixa salarial.
 ~~~SQL
@@ -430,6 +433,7 @@ group by aluno.nome;
 ### 3º Parte:
 * Faça retornar o nome do gerente e o nome do funcionário O funcionario que não possuir gerente deve aparecer também.
 ~~~SQL
+
 ~~~
 * Faça uma consulta que retorne os nomes dos funcionários e os nomes dos alunos, ordenados de forma decrescente. Os nomes duplicados devem aparecer
 ~~~SQL
