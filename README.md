@@ -118,33 +118,33 @@ alter table departamento add column sigla varchar(10);
  ### 1ª Parte - Criando tabelas com chaves primárias
  * Aluno:
  ~~~SQL
-use ucpel;
-create table aluno(
- matricula numeric(6),
- nome varchar(200),
- telefone numeric(10),
- dtnascimento timestamp,
- cidade varchar(100),
- email varchar(100),
- idade numeric(3),
- primary key (matricula)
- );
+create table aluno (
+	matricula int auto_increment,
+	nome varchar (200),
+	telefone int (10) unique,
+	dtaNascimento timestamp,
+	cidade varchar (100),
+	email varchar(100) default 'Sem email',
+	idade int (3),
+ primary key(matricula)
+);
   ~~~
   * matricula:
 ~~~SQL
 use ucpel;
 create table matricula(
- matriculaaluno numeric(6),
- coddisciplina numeric(6),
+ matricula_cod  numeric(6),
+ cod_disciplina numeric(6),
  dtefetivado timestamp,
- primary key (matriculaaluno,coddisciplina)
+ primary key (matriculaaluno)
+ foreign key (cod_disciplina) references disciplina (cod)
  );
 ~~~
 * Disciplina:
  ~~~SQL
 use ucpel;
 create table disciplina(
- cod numeric(6),
+ cod int auto_increment,
  nome varchar(100),
  cargahoraria numeric(6),
  numalunos numeric(6),
@@ -156,11 +156,11 @@ create table disciplina(
 ~~~SQl
 use ucpel;
 create table funcionario(
- cod numeric(6),
+ cod int auto_increment,
  nome varchar(100),
  cargo varchar(100),
  salario numeric(10),
- coddepartamento numeric(6),
+ departamento_cod numeric(6),
  dtcomntratacao timestamp,
  codgerente numeric(6),
  primary key (cod)
@@ -171,7 +171,7 @@ create table funcionario(
 ~~~SQl
 use ucpel;
 create table departamento(
- cod numeric(6),
+ cod int auto_increment,
  descricao varchar(500),
  sigla varchar(10),
  primary key (cod)
@@ -454,6 +454,32 @@ full union
 select disciplina.nome from disciplina;
 ~~~
 * Faça um único select, que reproduzam os inserts existentes nas tabelas Funcionário e Aluno, gerando o resultado no formato de scripts para serem executados em outra base de dados.
+~~~SQL
+
+~~~
+
+### 6º Tarefa:
+* Crie uma consulta para exibir o nome e a data de admissão de todos os funcionários no mesmo departamento que Maria, excluindo Maria. (Faça de duas formas, uma usando o IN e outra usando EXISTS)
+~~~SQL
+
+~~~
+* Crie uma consulta para exibir o código e o nome de todos os funcionários que recebem mais que o salário médio. Classifique os resultados, por salário, em ordem decrescente.
+~~~SQL
+
+~~~
+* Crie uma consulta que exiba o código e o nome de todos os funcionários que trabalhem em um departamento, onde exista um funcionário que possua a letra 'W' no nome.
+~~~SQL
+
+~~~
+* Crie uma consulta para exibir o nome, a data de admissão e o salário de todos os funcionários que ganhem mais que a média de salário de todos os departamentos.
+~~~SQL
+
+~~~
+* Selecione todos os gerentes que possuem efetivamente subordinados.
+~~~SQL
+
+~~~
+* Selecione todos os colegas de 'MARIA' em todas as disciplinas que ela esta matriculada, de acordo com a “matricula” realizada na tabela aluno_disciplina. (Faça de duas formas, uma usando o IN e outra usando EXISTS)
 ~~~SQL
 
 ~~~
