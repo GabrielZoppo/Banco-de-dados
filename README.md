@@ -299,7 +299,7 @@ update funcionario
 set salario = salario+(salario*(15/100))
 where coddepartamento = 20;
 ~~~
-### 4º Parte:
+## 4º Tarefa:
 * Recriar a tabela aluno com chave primária e estrangeira
 ~~~SQL
 CREATE TABLE aluno (
@@ -359,4 +359,55 @@ create table departamento(
  sigla varchar(3) not null,
  primary key (cod)
  );
+~~~
+## 5º Tarefa:
+### 1º Parte:
+* Faça uma consulta que exiba o nome do funcionário e do departamento de todos os funcionários.
+~~~SQL
+select funcionario.nome,departamento.descricao
+from funcionario
+inner join departamento
+on funcionario.coddepartamento = departamento.cod;
+~~~
+
+* Mostre todos os cargos dos funcionários lotados nos departamentos com sigla na CTB.
+~~~SQL
+select cargo from funcionario
+inner join departamento
+where departamento.sigla = "CTB"
+~~~
+
+* Mostre o número de alunos matriculados por disciplinas
+~~~SQL
+select matricula.coddisciplina,count(aluno.matricula) from matricula  
+inner join aluno  
+on matricula.matriculaaluno = aluno.matricula
+group by matricula.coddisciplina
+order by matricula.coddisciplina;
+~~~
+
+* Mostre o nome do funcionário e o nome do departamento dos funcionários que possuem um A em seus nomes.
+~~~SQL
+select funcionario.nome, departamento.descricao from funcionario 
+left join departamento  
+on funcionario.coddepartamento = departamento.cod
+where funcionario.nome like "%A%";
+~~~
+
+* Faça uma consulta que retorne todos os funcionários que trabalham em departamentos situados no Rio de Janeiro e que o salario seja maior que R$ 1500,00.
+~~~SQL
+select funcionario.* from funcionario  
+left join departamento  
+on departamento.cod = funcionario.coddepartamento
+where funcionario.salario > 1000.00 and departamento.sigla like "NS%";
+~~~
+
+* Retorne o nome do aluno e a carga de horas total das disciplinas que ele está matriculado. Ordene pelo nome do aluno.
+~~~SQL
+select aluno.nome,aluno.matricula,sum(disciplina.cargaHoraria) carga_total from aluno  
+left join matricula  
+on matricula.matriculaaluno = aluno.matricula 
+left join disciplina  
+on disciplina.cod = matricula.coddisciplina
+group by aluno.nome;
 ~~~
