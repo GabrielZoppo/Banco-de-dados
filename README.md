@@ -348,7 +348,7 @@ dtcomntratacao timestamp,
 codgerente numeric(6),
 primary key (cod),
 foreign key (coddepartamento) references departamento(cod),
-foreign key (codgerente) references funcionario(cod)
+foreign key (codgerente) references gerente(cod)
  );
 ~~~
 * Recriar a tabela departamento com chave primária e estrangeira
