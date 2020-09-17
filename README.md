@@ -433,17 +433,27 @@ group by departamento.cod;
 ### 3º Parte:
 * Faça retornar o nome do gerente e o nome do funcionário O funcionario que não possuir gerente deve aparecer também.
 ~~~SQL
-
+select funcionario.nome , gerente.nome from funcionario 
+full JOIN gerente 
+on funcionario.codgerente = gerente.id;
 ~~~
 * Faça uma consulta que retorne os nomes dos funcionários e os nomes dos alunos, ordenados de forma decrescente. Os nomes duplicados devem aparecer
 ~~~SQL
+select funcionario.nome,aluno.nome from funcionario 
+full join aluno 
+order by aluno.nome or funcionario.nome desc;
 ~~~
 * A mesma consulta acima, sem duplicar nomes.
+
 ~~~SQL
 ~~~
 * Faça retornar na mesma coluna o nome do aluno e o nome da disciplina sem repetições de nomes.
 ~~~SQL
+select aluno.nome from aluno
+full union
+select disciplina.nome from disciplina;
 ~~~
 * Faça um único select, que reproduzam os inserts existentes nas tabelas Funcionário e Aluno, gerando o resultado no formato de scripts para serem executados em outra base de dados.
 ~~~SQL
+
 ~~~
