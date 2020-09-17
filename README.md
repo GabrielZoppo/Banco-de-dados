@@ -319,16 +319,16 @@ create table matricula(
 matriculaaluno numeric(6),
 coddisciplina numeric(6),
 dtefetivado timestamp,
-primary key (matriculaaluno,coddisciplina),
+primary key (matriculaaluno),
 foreign key (coddisciplina) references disciplina(cod),
-foreign key (matriculaaluno) references aluno(matricula)
+
  );
 ~~~
 * Recriar a tabela disciplina com chave primária e estrangeira
 ~~~SQL
 use ucpel;
 create table disciplina(
-cod numeric(6),
+cod numeric(6) auto_increment,
 nome varchar(100) DEFAULT NULL,
 cargahoraria numeric(6) DEFAULT NULL,
 numalunos numeric(6) DEFAULT NULL,
@@ -410,4 +410,36 @@ on matricula.matriculaaluno = aluno.matricula
 left join disciplina  
 on disciplina.cod = matricula.coddisciplina
 group by aluno.nome;
+~~~
+ ### 2º Parte:
+* Crie uma consulta para exibir o nome do departamento, a sigla, o número de funcionários e o salário médio de todos os funcionários neste departamento.
+~~~SQL
+~~~
+* Monte uma consulta que informe a faixa salarial dos funcionários, de acordo com a tabela do slide 8. Em seguida faça um select com o número de funcionários por faixa salarial.
+~~~SQL
+~~~
+* Crie uma tabela faixaNivel, onde os alunos com idade de 15 à 20 são nível A, 21 à 25 nível B, 25 à 30 nível C e acima nível D. Faça uma consulta retornando o nome do aluno e o nível em que ele se encontra.
+~~~SQL
+~~~
+* Faça uma consulta para retornar todos os nomes de disciplinas e o número de alunos matriculados. Lembrando que se a disciplina não possuir aluno, deve informar 0 (zero).
+~~~SQL
+~~~
+* Faça uma consulta para retornar o nome do aluno e a disciplina matriculada. Todos os alunos devem aparecer, mesmo se não estiver matriculado em nenhuma disciplina.
+~~~SQL
+~~~
+### 3º Parte:
+* Faça retornar o nome do gerente e o nome do funcionário O funcionario que não possuir gerente deve aparecer também.
+~~~SQL
+~~~
+* Faça uma consulta que retorne os nomes dos funcionários e os nomes dos alunos, ordenados de forma decrescente. Os nomes duplicados devem aparecer
+~~~SQL
+~~~
+* A mesma consulta acima, sem duplicar nomes.
+~~~SQL
+~~~
+* Faça retornar na mesma coluna o nome do aluno e o nome da disciplina sem repetições de nomes.
+~~~SQL
+~~~
+* Faça um único select, que reproduzam os inserts existentes nas tabelas Funcionário e Aluno, gerando o resultado no formato de scripts para serem executados em outra base de dados.
+~~~SQL
 ~~~
