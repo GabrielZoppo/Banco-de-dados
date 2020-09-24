@@ -459,27 +459,52 @@ select disciplina.nome from disciplina;
 ~~~
 
 ### 6º Tarefa:
-* Crie uma consulta para exibir o nome e a data de admissão de todos os funcionários no mesmo departamento que Maria, excluindo Maria. (Faça de duas formas, uma usando o IN e outra usando EXISTS)
+* Crie uma consulta para exibir o nome e a data de admissão de todos os funcionários no mesmo departamento que Maria, excluindo Maria. Usando o IN
 ~~~SQL
+select funcionario.nome, funcionario.dtcontrato from funcionario  
+where funcionario.departamento_id = (select funcionario.departamento_id from funcionario  where funcionario.nome like 'Maria') 
+and funcionario.nome in (select funcionario.nome from funcionario  where funcionario.nome <> 'Maria');
+~~~
 
+* Crie uma consulta para exibir o nome e a data de admissão de todos os funcionários no mesmo departamento que Maria, excluindo Maria. Usando EXISTS)
+~~~SQL
+select funcionario.nome, funcionario.dtcontrato from funcionario  
+where funcionario.departamento_id = (select funcionario.departamento_id from funcionario  where funcionario.nome like 'Maria') 
+and exists (select * from funcionario where funcionario.nome not like 'Maria');
 ~~~
 * Crie uma consulta para exibir o código e o nome de todos os funcionários que recebem mais que o salário médio. Classifique os resultados, por salário, em ordem decrescente.
 ~~~SQL
-
+select distinct(funcionario.cod),funcionario.nome, funcionario.salario,categoria_salario.categoria from funcionario ,categoria_salario 
+where funcionario.salario < (select avg(funcionario.salario) from funcionario ) and funcionario.salario between categoria_salario.menor and categoria_salario.maior
+order by funcionario.salario desc;
 ~~~
 * Crie uma consulta que exiba o código e o nome de todos os funcionários que trabalhem em um departamento, onde exista um funcionário que possua a letra 'W' no nome.
 ~~~SQL
-
+select funcionario.cod , funcionario.nome ,funcionario.departamento_id from funcionario  
+where funcionario.departamento_id
+in (select funcionario.departamento_id from funcionario  where funcionario.nome like '%E');
 ~~~
 * Crie uma consulta para exibir o nome, a data de admissão e o salário de todos os funcionários que ganhem mais que a média de salário de todos os departamentos.
 ~~~SQL
-
+select funcionario.nome , funcionario.cod, funcionario.salario from funcionario  
+where funcionario.salario > (select avg(funcionario.salario) from funcionario );
 ~~~
 * Selecione todos os gerentes que possuem efetivamente subordinados.
 ~~~SQL
-
+select cod,nome from funcionario gerente
+where exists (select 1 from funcionario  where funcionario.cod_gerente = gerente.cod);
 ~~~
-* Selecione todos os colegas de 'MARIA' em todas as disciplinas que ela esta matriculada, de acordo com a “matricula” realizada na tabela aluno_disciplina. (Faça de duas formas, uma usando o IN e outra usando EXISTS)
+* Selecione todos os colegas de 'MARIA' em todas as disciplinas que ela esta matriculada, de acordo com a “matricula” realizada na tabela aluno_disciplina. Usando o IN 
 ~~~SQL
-
+select aluno.nome from aluno  right join matricula  on matricula.matricula_cod = aluno.matricula
+where matricula.cod_disciplina in (select matricula.cod_disciplina from matricula left join aluno on aluno.matricula = matricula.matricula_cod where aluno.nome like 'Maria') and aluno.nome <> 'Maria'
+group by a.matricula;
 ~~~
+
+* Selecione todos os colegas de 'MARIA' em todas as disciplinas que ela esta matriculada, de acordo com a “matricula” realizada na tabela aluno_disciplina. Usando EXISTS
+~~~SQL
+select aluno.nome from aluno  right join matricula  on matricula.matricula_cod = aluno.matricula
+where exists (select matricula.cod_disciplina from matricula  left join aluno aluno on aluno.matricula = matricula.matricula_cod where aluno.nome like 'Maria') and aluno.nome <> 'Maria'
+group by aluno.nome;
+~~~
+
