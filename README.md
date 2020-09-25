@@ -482,7 +482,7 @@ order by funcionario.salario desc;
 ~~~SQL
 select funcionario.cod , funcionario.nome ,funcionario.departamento_id from funcionario  
 where funcionario.departamento_id
-in (select funcionario.departamento_id from funcionario  where funcionario.nome like '%E');
+in (select funcionario.departamento_id from funcionario  where funcionario.nome like '%W');
 ~~~
 * Crie uma consulta para exibir o nome, a data de admissão e o salário de todos os funcionários que ganhem mais que a média de salário de todos os departamentos.
 ~~~SQL
