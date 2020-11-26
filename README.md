@@ -509,7 +509,7 @@ group by aluno.nome;
 ~~~
 
 ## Código do trabalho final
-* Código do bando:
+* Código do banco:
 ~~~SQL
 -- tabela cliente
 create table Cliente (
